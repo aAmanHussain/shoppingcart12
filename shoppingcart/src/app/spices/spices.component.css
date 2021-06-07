@@ -1,0 +1,29 @@
+.btn{
+
+    background-color: blue;
+    border-radius: 50%;
+    color: white;
+    margin: 0 8px;
+}
+.card{
+    margin: 5px;
+   
+}
+.card-body  span{
+    
+    font-size: 18px;
+}
+
+.cart-btn{
+    background-color: blue;
+    border:1px solid;
+    border-radius: 5px;
+    color: white;
+    margin-top: 10px;
+    padding: 4px 16px;
+    transition: 0.4s;
+}
+.cart-btn:hover{
+    color: blue;
+    background: transparent;
+}
