@@ -7,12 +7,12 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="nav justify-content-end">
         <li class="nav-item">
-            <a class="nav-link" routerLink="/home"><i class="fa fa-home"></i>Home</a>
+            <a class="nav-link" [routerLink]="'/home'"><i class="fa fa-home"></i>Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" routerLink="/product">Products</a>
+            <a class="nav-link" [routerLink]="'/product'">Products</a>
         </li>
-        <a class="nav-link" routerLink="/cart">
+        <a class="nav-link" [routerLink]="'/cart'">
             <mat-icon matBadge="{{cartItem}}" matBadgeColor="warn">shopping_cart</mat-icon>
           </a>
       </ul>

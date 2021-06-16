@@ -3,34 +3,42 @@ import {FormBuilder} from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from 'src/app/auth.service';
 import { CartService } from 'src/app/cart/cart.service';
-import { cart } from './cart';
+
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-
+  getCartDetails: any [];
   constructor(private auth: AuthService, private http: HttpClient, private formBuilder: FormBuilder, private cartService: CartService) { }
-  getCartDetails: any = [];
 
+  getCartDetail = {
+    prodId: '',
+    name: '',
+    qnt: '',
+    amt: ''
+  };
   total = 0;
   cartNumber = 0;
   items = this.cartService.getItems();
-  checkoutForm = this.formBuilder.group({
+checkoutForm = this.formBuilder.group({
   name: '',
   address: '',
 });
-  onSubmit(getCartDetails): void {
-    // Process checkout data here
-    this.items = this.cartService.clearCart();
-    console.warn('Your order has been submitted', this.checkoutForm.value);
-    this.checkoutForm.reset();
-    this.cartService.postCart(getCartDetails).subscribe((res) => {
-      console.table(getCartDetails);
-     });
-  }
-  ngOnInit(): void {
+cartDetail() {
+  console.table(this.getCartDetails);
+  this.items = this.cartService.clearCart();
+  console.warn('Your order has been submitted', this.checkoutForm.value);
+  //   this.checkoutForm.reset();
+  this.cartService.cartDetail(this.getCartDetail)
+   .subscribe(res => console.log(res),
+  err => console.log(err));
+
+ }
+
+
+  ngOnInit() {
     this.CartDetails();
     this.loadCart();
   }
@@ -154,5 +162,4 @@ cartValue.length;
 this.auth.cartSubject.next
 (this.cartNumber);
 }
-
 }

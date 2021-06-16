@@ -1,4 +1,4 @@
-<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(getCartDetails)">
+<form [formGroup]="checkoutForm">
   
     <section class="cart_section">
       <div class="container">
@@ -67,7 +67,7 @@
         <input id="name" type="text" formControlName="name">
        <label for="address"> Address </label>
         <input id="address" type="text" formControlName="address">
-        <button class="button btn-primary" type="submit" >Purchase</button>
+        <button class="button btn-primary" (click)="cartDetail()">Purchase</button>
     </div>
     </div>
       </section>
